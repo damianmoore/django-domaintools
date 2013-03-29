@@ -10,5 +10,8 @@ setup(
     license = "BSD",
     keywords = "django domain",
     url = "https://github.com/damianmoore/django-domaintools",
-    packages=['domaintools'],
+    packages=[
+        'domaintools',
+        'domaintools.migrations',
+    ],
 )
