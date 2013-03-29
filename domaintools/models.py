@@ -18,8 +18,10 @@ class Domain(models.Model):
         self.save()
 
     def days_remaining(self):
-        if not (self.expiry_date and self.last_check) or (datetime.now() - self.last_check).days > 7:
+        if not self.last_check or (datetime.now() - self.last_check).days > 7:
             self.update_expiry_date()
+        if not self.expiry_date:
+            return 0
         return expiry.get_days_remaining(self.expiry_date)
 
     def save(self):
