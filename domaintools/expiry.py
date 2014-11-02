@@ -16,7 +16,7 @@ def get_value(data, search):
 
 
 def get_date_from_string(string):
-    return datetime.strptime(string, '%d-%b-%Y')
+    return datetime.strptime(string, '%d-%b-%Y').date()
 
 
 def get_days_remaining(datetime_object):
@@ -33,8 +33,8 @@ def domain_renewal_date(domain):
     for renewal_string in RENEWAL_STRINGS:
         if renewal_string in data:
             date_string = get_value(data, renewal_string)
-            datetime_object = get_date_from_string(date_string)
-            return datetime_object
+            date_object = get_date_from_string(date_string)
+            return date_object
     return None
 
 
